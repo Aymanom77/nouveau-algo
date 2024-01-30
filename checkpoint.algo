@@ -1,0 +1,23 @@
+ALGORITHME EstPalindrome(mot)
+ 
+    motEnMinuscules <- ConvertirEnMinuscules(mot)
+    
+    // Initialiser les indices de début et de fin
+    debut <- 0
+    fin <- Longueur(motEnMinuscules) - 1
+
+    // Parcourir les caractères du mot jusqu'à ce que les indices se croisent
+    TANT_QUE debut < fin FAIRE
+        // Comparer les caractères aux extrémités du mot
+        SI motEnMinuscules[debut] ≠ motEnMinuscules[fin] ALORS
+            RETOURNER Faux
+        FIN SI
+
+        // Passer aux caractères suivants
+        debut <- debut + 1
+        fin <- fin - 1
+    FIN TANT_QUE
+
+    // Si la boucle est terminée, le mot est un palindrome
+    RETOURNER Vrai
+FIN ALGORITHME
