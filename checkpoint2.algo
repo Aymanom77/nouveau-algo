@@ -1,0 +1,38 @@
+ALGORITHME AnalyserPhrase()
+    // Initialiser les compteurs
+    longueurPhrase <- 0
+    nombreMots <- 0
+    nombreVoyelles <- 0
+
+    // Lire la phrase caractère par caractère jusqu'à rencontrer le point
+    CARACTERE <- LIRE_CARACTERE()
+    TANT_QUE CARACTERE ≠ '.' FAIRE
+        // Incrémenter le compteur de longueur de phrase
+        longueurPhrase <- longueurPhrase + 1
+
+        // Si le caractère est une lettre, vérifier s'il s'agit d'une voyelle
+        SI EST_LETTRE(CARACTERE) ALORS
+            CARACTERE_MINUSCULE <- CONVERTIR_EN_MINUSCULE(CARACTERE)
+            SI EST_VOYELLE(CARACTERE_MINUSCULE) ALORS
+                // Incrémenter le compteur de voyelles
+                nombreVoyelles <- nombreVoyelles + 1
+            FIN SI
+        FIN SI
+
+        // Si le caractère est un espace, incrémenter le compteur de mots
+        SI CARACTERE = ' ' ALORS
+            nombreMots <- nombreMots + 1
+        FIN SI
+
+        // Lire le caractère suivant
+        CARACTERE <- LIRE_CARACTERE()
+    FIN TANT_QUE
+
+    // Incrémenter le compteur de mots pour prendre en compte le dernier mot
+    nombreMots <- nombreMots + 1
+
+    // Afficher les résultats
+    AFFICHER "Longueur de la phrase:", longueurPhrase
+    AFFICHER "Nombre de mots:", nombreMots
+    AFFICHER "Nombre de voyelles:", nombreVoyelles
+FIN ALGORITHME
